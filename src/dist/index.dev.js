@@ -9,8 +9,9 @@ var _require = require('./md-links'),
     extMd = _require.extMd,
     obtenerLinks = _require.obtenerLinks,
     mdFiles = _require.mdFiles,
-    validater = _require.validater; // const rutadelUsuario = process.argv[2];
+    validater = _require.validater;
 
+var rutadelUsuario = process.argv[2];
 
 var mdLinks = function mdLinks(filePath, option) {
   return new Promise(function (resolve, reject) {
@@ -53,13 +54,14 @@ var mdLinks = function mdLinks(filePath, option) {
     }
   });
 };
-/* mdLinks(rutadelUsuario, { validate: true })
-  .then((links) => {
-    console.log(links);
-  })
-  .catch((error) => console.log(error)); */
 
-
+mdLinks(rutadelUsuario, {
+  validate: true
+}).then(function (links) {
+  console.log(links);
+})["catch"](function (error) {
+  return console.log(error);
+});
 module.exports = {
   mdLinks: mdLinks
 };
