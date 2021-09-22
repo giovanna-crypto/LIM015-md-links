@@ -1,30 +1,29 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
-/* const mdLinks = require('../'); */
+const fetch = require('node-fetch');
 const {
   esRuta, rutaAbsolut, esDir, convertiraAbsolut, isArchivo, extMd, mdFiles, leerArchivo, obtenerLinks, validater,
 } = require('../src/md-links');
-const fetch = require('node-fetch');
+
 jest.mock('node-fetch');
-// const mdFile = path.join(process.cwd(), 'test', 'prueba2', 'prueba20.md');
-// console.log(mdFile);
 
 const objeto = [
   {
     href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
     text: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
-    file: 'C:\\Users\\N18\\OneDrive\\Escritorio\\Archivos\\LIM015-md-links\\test\\prueba2\\prueba20.md'
+    file: 'C:\\Users\\N18\\OneDrive\\Escritorio\\Archivos\\LIM015-md-links\\test\\prueba2\\prueba20.md',
   },
 ];
 const objetoStatus = {
   status: 200,
-  message: 'OK'
+  message: 'OK',
 };
 const resultado = [{
   href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
   text: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
   file: 'C:\\Users\\N18\\OneDrive\\Escritorio\\Archivos\\LIM015-md-links\\test\\prueba2\\prueba20.md',
   status: 200,
-  message: 'OK'
+  message: 'OK',
 }];
 // const{verArchivo}= require("../src/md-links.js");
 // const {fs} = require("fs");
@@ -108,10 +107,10 @@ describe('mdLinks', () => {
       {
         href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
         text: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
-        file: 'C:\\Users\\N18\\OneDrive\\Escritorio\\Archivos\\LIM015-md-links\\test\\prueba2\\prueba20.md'
-      }
-    ])
-  })
+        file: 'C:\\Users\\N18\\OneDrive\\Escritorio\\Archivos\\LIM015-md-links\\test\\prueba2\\prueba20.md',
+      },
+    ]);
+  });
   // tiene que verificar si es una funcion
   it('Debe verificar si es función', () => {
     expect(typeof validater).toBe('function');
