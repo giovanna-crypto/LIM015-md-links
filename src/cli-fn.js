@@ -1,15 +1,7 @@
 const chalk = require('chalk');
-// const figlet = require('figlet');
 // const rutadelUsuario = process.argv[2];
 // estadisticas de los links
 
-/* figlet('Md-Links', {
-  font: 'Ghost',
-  horizontalLayout: 'deafult',
-  verticalLayout: 'defaul',
-}, (err, result) => {
-  console.log(err || result);
-}); */
 const linksStats = (arr) => {
   const total = [];
   const unique = new Set();

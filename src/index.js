@@ -10,7 +10,7 @@ const {
   validater,
 } = require('./md-links');
 
- const rutadelUsuario = process.argv[2];
+// const rutadelUsuario = process.argv[2];
 
 const mdLinks = (filePath, option) => new Promise((resolve, reject) => {
   const absolutePath = convertiraAbsolut(filePath);
@@ -36,11 +36,11 @@ const mdLinks = (filePath, option) => new Promise((resolve, reject) => {
   } else { reject('Ruta no existe'); }
 });
 
-mdLinks(rutadelUsuario, { validate: true })
+/* mdLinks(rutadelUsuario, { validate: true })
   .then((links) => {
     console.log(links);
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error)); */
 
 module.exports = {
   mdLinks,

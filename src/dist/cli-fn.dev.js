@@ -1,16 +1,7 @@
 "use strict";
 
-var chalk = require('chalk'); // const figlet = require('figlet');
-// const rutadelUsuario = process.argv[2];
+var chalk = require('chalk'); // const rutadelUsuario = process.argv[2];
 // estadisticas de los links
-
-/* figlet('Md-Links', {
-  font: 'Ghost',
-  horizontalLayout: 'deafult',
-  verticalLayout: 'defaul',
-}, (err, result) => {
-  console.log(err || result);
-}); */
 
 
 var linksStats = function linksStats(arr) {
