@@ -5,7 +5,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 /* eslint-disable max-len */
 
 /* eslint-disable no-undef */
-var fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+var fetch = require('../__mocks__/mock_fetch');
 
 var _require = require('../src/md-links'),
     esRuta = _require.esRuta,
@@ -17,9 +18,9 @@ var _require = require('../src/md-links'),
     mdFiles = _require.mdFiles,
     leerArchivo = _require.leerArchivo,
     obtenerLinks = _require.obtenerLinks,
-    validater = _require.validater;
+    validater = _require.validater; // jest.mock('node-fetch');
 
-jest.mock('node-fetch');
+
 var objeto = [{
   href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
   text: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions',
@@ -123,21 +124,10 @@ describe('mdLinks', function () {
     expect(_typeof(validater)).toBe('function');
   }); // tiene que devolver un array con 5 objetos
 
-  test('Debe devolver un mock promesa status 200', function _callee() {
-    return regeneratorRuntime.async(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            fetch.mockResolvedValue(objetoStatus);
-            return _context.abrupt("return", Promise.all(validater(objeto)).then(function (data) {
-              expect(data).toStrictEqual(resultado);
-            }));
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
+  test('Debe devolver un mock promesa status 200', function () {
+    fetch.mockResolvedValue(objetoStatus);
+    return Promise.all(validater(objeto)).then(function (data) {
+      expect(data).toEqual(resultado);
     });
   });
 });

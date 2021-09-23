@@ -1,11 +1,14 @@
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+
+const fetch = require('../__mocks__/mock_fetch');
+
 const {
   esRuta, rutaAbsolut, esDir, convertiraAbsolut, isArchivo, extMd, mdFiles, leerArchivo, obtenerLinks, validater,
 } = require('../src/md-links');
 
-jest.mock('node-fetch');
+// jest.mock('node-fetch');
 
 const objeto = [
   {
@@ -116,10 +119,10 @@ describe('mdLinks', () => {
     expect(typeof validater).toBe('function');
   });
   // tiene que devolver un array con 5 objetos
-  test('Debe devolver un mock promesa status 200', async () => {
+  test('Debe devolver un mock promesa status 200', () => {
     fetch.mockResolvedValue(objetoStatus);
     return Promise.all(validater(objeto)).then((data) => {
-      expect(data).toStrictEqual(resultado);
+      expect(data).toEqual(resultado);
     });
   });
 });
