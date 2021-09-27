@@ -1,5 +1,5 @@
 {
-  "name": "md-links-giovannaldi",
+  "name": "giova_lim015-md-links",
   "version": "0.1.0",
   "main": "src/cli.js",
   "description": "Con Cli podras verificar el estado de los links de tu archivo md",
@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "chalk": "^4.1.2",
+    "gio_lim015-md-links": "^0.1.0",
     "jest": "^27.0.6",
     "jest-mock": "^27.1.1",
     "marked": "^3.0.2",

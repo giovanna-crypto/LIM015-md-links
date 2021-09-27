@@ -4,16 +4,17 @@ const chalk = require('chalk');
 const { mdLinks } = require('./index');
 
 const {
-  linksStats, linksRotos, mensajeHelp, rutaSinLinks, rutaNoExiste,
+  linksStats, enValidate, statsValidate, defaultOption, mensajeHelp, rutaSinLinks, rutaNoExiste,
 } = require('./cli-fn');
 
-const rutadelUsuario = process.argv[2];
+// const rutadelUsuario = process.argv[2];
 const option = process.argv.slice(2);
-const validate = option.includes('--v' || '--validate');
-const stats = option.includes('--s' || '--stats');
+const validar = option.includes('--v');
+const stats = option.includes('--s');
+
 if (option.length === 1) {
-  mdLinks(rutadelUsuario, { validate })
-    .then((resolve) => console.log(resolve))
+  mdLinks(process.argv[2], { validate: true })
+    .then((res) => console.table(chalk.greenBright(defaultOption(res))))
     .catch((reject) => {
       if (reject === 'Ruta no existe') {
         console.log(rutaNoExiste);
@@ -21,24 +22,22 @@ if (option.length === 1) {
         console.log('hola1', rutaSinLinks);
       }
     });
-} else if (validate) {
-  mdLinks(rutadelUsuario, { validate })
-    .then((res) => console.log(res))
+} else if (validar) {
+  mdLinks(process.argv[2], { validate: true })
+    .then((res) => console.log(enValidate(res)))
     .catch((e) => console.log(rutaSinLinks, e));
 } else if (stats) {
-  mdLinks(rutadelUsuario, { validate })
-    .then((res) => console.table(chalk.greenBright(linksStats(res))))
+  mdLinks(process.argv[2], { validate: true })
+    .then((res) => console.table(linksStats(res)))
     .catch((e) => console.log(rutaSinLinks, e));
-} else if (validate && stats) {
-  console.log('hola');
-  mdLinks(rutadelUsuario, { validate })
+} else if (option[1] === '--stats' && option[2] === '--validate') {
+  mdLinks(process.argv[2], { validate: true })
     .then((res) => {
-      console.table(chalk.green(linksStats(res)));
-      console.table(chalk.red(linksRotos(res)));
+      console.table(statsValidate(res));
     })
     .catch((e) => console.log(rutaSinLinks, e));
 } else {
-  mdLinks(rutadelUsuario, { validate })
+  mdLinks(process.argv[2], { validate: true })
     .then(console.log(mensajeHelp))
     .catch((e) => console.log(rutaSinLinks, e));
 }

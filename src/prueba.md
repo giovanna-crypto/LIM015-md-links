@@ -4,4 +4,5 @@
   (`new marked.Renderer()`).
   - [¿Simplemente qué es Node.js? - IBM Developer Works, 2011](https://www.ibm.com/developerworks/ssa/opensource/library/os-nodejs/index.html)
   link roto:
-  (https://www.bmi.com/developerworks/index.html)
+  (https://www.bmi1.com/developerworks/index.html)
+  
