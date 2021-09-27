@@ -59,6 +59,7 @@ Obtener validación en la terminal
 Si pasamos la opción '--validate', el módulo hara una petición HTTP para ver si el link funciona o no. Si el link resulta en una redirección a una URL que responde ok, entonces consideraremos el link como ok.
 
 Ejemplo: 
+
 ![Sin título3](https://user-images.githubusercontent.com/85503873/134874010-f7ab7937-c7a6-4218-bff2-ac26dd94d92d.png)
 
 Obtener Estadísticas en la terminal
@@ -68,6 +69,7 @@ Obtener Estadísticas en la terminal
 Si pasamos la opción '--s' el output (salida) será un texto con estadísticas básicas sobre los links.
 
 Ejemplo:
+
 ![Sin título2](https://user-images.githubusercontent.com/85503873/134873608-2db8dbf7-f91f-4b3c-a625-ee433a85f72b.png)
 
 `$ md-links ./some/example.md --stats --validate`
@@ -75,6 +77,7 @@ Ejemplo:
 Si pasamos la opción '--stats' y '--validate' el output (salida) será un texto con estadísticas  sobre los links además incluira la estadistica de links rotos.
 
 Ejemplo:
+
 ![Sin título4](https://user-images.githubusercontent.com/85503873/134874875-a627af25-d65e-4bc2-82b4-f6685b7ccb86.png)
 
 Obtener Ayuda en la terminal
@@ -91,6 +94,7 @@ Ejemplo:
 Si no pasamos ninguna opción
 
 `$ md-links ./some/example.md`
+
 
 ![Sin título](https://user-images.githubusercontent.com/85503873/134872536-603e3b74-555a-4eaa-b2bb-389498075b06.png)
 

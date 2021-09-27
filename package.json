@@ -1,6 +1,6 @@
 {
   "name": "giova_lim015-md-links",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/cli.js",
   "description": "Con Cli podras verificar el estado de los links de tu archivo md",
   "bin": {
